@@ -3,27 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO Meta Tags -->
 <title>Green Palace Party Plot | Sindhu Bhavan Shilaj Road, Bopal Ahmedabad | Wedding & Events Lawn</title>
 <meta name="description" content="Green Palace Party Plot – Premium open lawn venue in Sindhu Bhavan, Shilaj Road, Bopal, Ahmedabad. Capacity 1000–1500 guests. Ideal for weddings, receptions, birthday parties & all celebrations. Call to book!">
 <meta name="keywords" content="Green Palace Party Plot, party plot Bopal Ahmedabad, party plot Shilaj Road, wedding lawn Ahmedabad, open lawn Bopal, party plot near me Ahmedabad, Green Palace Sindhu Bhavan, wedding venue Bopal, party plot 1000 guests Ahmedabad, outdoor wedding Ahmedabad">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Green Palace Party Plot">
-
-<!-- Open Graph (for Google & Social) -->
 <meta property="og:title" content="Green Palace Party Plot – Bopal, Ahmedabad">
 <meta property="og:description" content="Premium open lawn party plot in Bopal, Ahmedabad. 1000–1500 guests capacity. Weddings, receptions, birthdays & all events.">
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="en_IN">
-
-<!-- Schema.org Local Business Structured Data (helps Google listing) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "EventVenue",
   "name": "Green Palace Party Plot",
-  "description": "Premium open lawn party plot in Bopal, Ahmedabad. Capacity 1000-1500 guests. Ideal for weddings, receptions, birthday parties and all celebrations.",
+  "description": "Premium open lawn party plot in Bopal, Ahmedabad. Capacity 1000-1500 guests.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Sindhu Bhavan, Shilaj Road",
@@ -32,13 +26,7 @@
     "postalCode": "380058",
     "addressCountry": "IN"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "23.0225",
-    "longitude": "72.4671"
-  },
   "telephone": "+91-9081810016",
-  "url": "https://greenpalacepartyplot.com",
   "openingHours": "Mo-Su 09:00-21:00",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -47,13 +35,10 @@
   }
 }
 </script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --green-900: #0d2b1a;
     --green-800: #1a4228;
@@ -70,11 +55,10 @@
     --font-h: 'Playfair Display', serif;
     --font-b: 'DM Sans', sans-serif;
   }
-
   html { scroll-behavior: smooth; font-size: 16px; }
   body { font-family: var(--font-b); background: var(--cream); color: var(--text); line-height: 1.6; }
 
-  /* ─── NAV ─────────────────────────────────────── */
+  /* ─── NAV ─── */
   nav {
     position: sticky; top: 0; z-index: 200;
     background: var(--green-900);
@@ -82,11 +66,10 @@
     padding: 0 5%; height: 62px;
     border-bottom: 1px solid rgba(200,150,60,0.25);
   }
-  .logo {
-    font-family: var(--font-h); font-size: 1.35rem; color: var(--gold);
-    letter-spacing: 0.04em; text-decoration: none;
-  }
+  .logo { font-family: var(--font-h); font-size: 1.35rem; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
   .logo span { color: #fff; font-style: italic; }
+
+  /* Desktop nav links */
   .nav-links { display: flex; gap: 1.8rem; align-items: center; }
   .nav-links a {
     color: rgba(255,255,255,0.75); text-decoration: none;
@@ -99,13 +82,56 @@
     padding: 0.4rem 1.2rem; border-radius: 2px; font-weight: 500 !important;
   }
   .nav-cta:hover { background: var(--gold-lt) !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
 
-  /* ─── HERO ────────────────────────────────────── */
-  .hero {
-    min-height: 94vh;
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 8px; z-index: 300;
+  }
+  .hamburger span {
+    width: 24px; height: 2px; background: #fff; border-radius: 2px;
+    transition: all 0.3s ease; display: block;
+  }
+  /* Hamburger X animation when open */
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* Mobile menu — hidden by default */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 62px; left: 0; right: 0;
     background: var(--green-900);
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--gold);
+    z-index: 199;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 1rem 5%; border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background .2s, color .2s;
+  }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--gold); }
+  .mobile-menu a.mob-cta {
+    background: var(--gold); color: var(--green-900) !important;
+    text-align: center; margin: 1rem 5% 0.5rem; border-radius: 2px;
+    border-bottom: none; font-weight: 500;
+  }
+  .mobile-menu a.mob-wa {
+    background: #25D366; color: #fff !important;
+    text-align: center; margin: 0 5% 0.5rem; border-radius: 2px;
+    border-bottom: none; font-weight: 500;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 94vh; background: var(--green-900);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 5rem 5% 4rem; position: relative; overflow: hidden;
   }
@@ -123,8 +149,7 @@
   }
   .hero h1 {
     font-family: var(--font-h); font-size: clamp(2.8rem, 8vw, 5.5rem);
-    color: #fff; font-weight: 700; line-height: 1.08; margin-bottom: 0.5rem;
-    position: relative;
+    color: #fff; font-weight: 700; line-height: 1.08; margin-bottom: 0.5rem; position: relative;
   }
   .hero h1 em { color: var(--green-400); font-style: italic; }
   .hero-sub {
@@ -159,15 +184,10 @@
     padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08);
     width: 100%; max-width: 600px;
   }
-  .hs-num {
-    font-family: var(--font-h); font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1;
-  }
-  .hs-label {
-    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35); margin-top: 0.3rem;
-  }
+  .hs-num { font-family: var(--font-h); font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .hs-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 0.3rem; }
 
-  /* ─── SECTION BASE ────────────────────────────── */
+  /* ─── SECTIONS ─── */
   section { padding: 5.5rem 5%; }
   .inner { max-width: 1080px; margin: 0 auto; }
   .sec-tag {
@@ -183,99 +203,61 @@
   .sec-title em { color: var(--green-600); font-style: italic; }
   .sec-desc { color: var(--muted); max-width: 520px; font-weight: 300; font-size: 0.97rem; line-height: 1.85; }
 
-  /* ─── EVENTS ──────────────────────────────────── */
+  /* ─── EVENTS ─── */
   .events-sec { background: #fff; }
-  .events-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 1.2rem; margin-top: 3rem;
-  }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
   .ev-card {
     border: 1.5px solid var(--green-50); border-radius: 6px;
     padding: 1.8rem 1.3rem; text-align: center;
     transition: border-color .2s, transform .2s; background: var(--cream);
   }
   .ev-card:hover { border-color: var(--green-400); transform: translateY(-4px); }
-  .ev-icon {
-    width: 54px; height: 54px; border-radius: 50%; background: var(--green-50);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.1rem; font-size: 24px;
-  }
+  .ev-icon { width: 54px; height: 54px; border-radius: 50%; background: var(--green-50); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; font-size: 24px; }
   .ev-name { font-family: var(--font-h); font-size: 1.1rem; font-weight: 700; color: var(--green-900); margin-bottom: 0.4rem; }
   .ev-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
 
-  /* ─── FEATURES ────────────────────────────────── */
+  /* ─── FEATURES ─── */
   .features-sec { background: var(--green-900); }
   .features-sec .sec-tag { color: var(--green-400); }
   .features-sec .sec-tag::before { background: var(--green-400); }
   .features-sec .sec-title { color: #fff; }
   .features-sec .sec-title em { color: var(--gold); }
   .features-sec .sec-desc { color: rgba(255,255,255,0.5); }
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem; margin-top: 3rem;
-  }
-  .feat-card {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px; padding: 1.8rem 1.5rem; transition: background .2s;
-  }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+  .feat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1.8rem 1.5rem; transition: background .2s; }
   .feat-card:hover { background: rgba(255,255,255,0.09); }
   .feat-num { font-family: var(--font-h); font-size: 2.8rem; font-weight: 700; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 0.8rem; }
   .feat-title { font-size: 0.97rem; font-weight: 500; color: #fff; margin-bottom: 0.45rem; }
   .feat-desc { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
 
-  /* ─── CAPACITY ────────────────────────────────── */
+  /* ─── CAPACITY ─── */
   .cap-sec { background: var(--cream); }
-  .cap-wrap {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; margin-top: 3rem;
-  }
-  .cap-box {
-    background: var(--green-50); border: 1px solid var(--green-200);
-    border-radius: 8px; padding: 3rem 2rem; text-align: center;
-  }
+  .cap-wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .cap-box { background: var(--green-50); border: 1px solid var(--green-200); border-radius: 8px; padding: 3rem 2rem; text-align: center; }
   .cap-big { font-family: var(--font-h); font-size: 5.5rem; font-weight: 700; color: var(--green-800); line-height: 1; }
   .cap-unit { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-600); margin-top: 0.3rem; }
   .cap-line { width: 40px; height: 2px; background: var(--gold); margin: 1.2rem auto; }
   .cap-range { font-family: var(--font-h); font-size: 1.2rem; color: var(--muted); }
-  .cap-list { list-style: none; margin-top: 0; }
-  .cap-list li {
-    padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.92rem; color: var(--muted); display: flex; align-items: center; gap: 0.75rem; font-weight: 300;
-  }
+  .cap-list { list-style: none; }
+  .cap-list li { padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.92rem; color: var(--muted); display: flex; align-items: center; gap: 0.75rem; font-weight: 300; }
   .cap-list li:last-child { border-bottom: none; }
   .cap-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-400); flex-shrink: 0; }
 
-  /* ─── WHY US ──────────────────────────────────── */
+  /* ─── WHY US ─── */
   .why-sec { background: #fff; }
-  .why-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem; margin-top: 3rem;
-  }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
   .why-item { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
-  .why-icon {
-    width: 46px; height: 46px; border-radius: 8px; background: var(--green-50);
-    display: flex; align-items: center; justify-content: center; font-size: 20px;
-  }
+  .why-icon { width: 46px; height: 46px; border-radius: 8px; background: var(--green-50); display: flex; align-items: center; justify-content: center; font-size: 20px; }
   .why-title { font-weight: 500; font-size: 1rem; color: var(--green-900); }
   .why-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
 
-  /* ─── GALLERY PLACEHOLDER ─────────────────────── */
+  /* ─── GALLERY ─── */
   .gallery-sec { background: var(--green-900); padding: 5.5rem 0; }
   .gallery-inner { max-width: 1080px; margin: 0 auto; padding: 0 5%; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    grid-template-rows: 200px 200px;
-    gap: 10px; margin-top: 2.5rem; border-radius: 6px; overflow: hidden;
-  }
-  .g-item {
-    display: flex; align-items: flex-end; justify-content: flex-start; padding: 1rem 1.1rem;
-    position: relative; overflow: hidden; cursor: pointer;
-  }
+  .gallery-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 200px 200px; gap: 10px; margin-top: 2.5rem; border-radius: 6px; overflow: hidden; }
+  .g-item { display: flex; align-items: flex-end; justify-content: flex-start; padding: 1rem 1.1rem; position: relative; overflow: hidden; cursor: pointer; }
   .g-item:first-child { grid-row: 1 / 3; }
-  .g-item::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.6));
-  }
+  .g-item::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.6)); }
   .g1 { background: linear-gradient(135deg, #1a4228, #0d2b1a); }
   .g2 { background: linear-gradient(135deg, #255c38, #1a4228); }
   .g3 { background: linear-gradient(135deg, #2e7d4f, #255c38); }
@@ -284,28 +266,16 @@
   .g-label { position: relative; z-index: 1; }
   .g-label p { font-size: 0.75rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; text-transform: uppercase; }
   .g-label h4 { font-family: var(--font-h); font-size: 1.05rem; color: #fff; margin-top: 0.1rem; }
-  .gallery-note {
-    text-align: center; margin-top: 1.5rem;
-    font-size: 0.82rem; color: rgba(255,255,255,0.35); font-weight: 300;
-  }
+  .gallery-note { text-align: center; margin-top: 1.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.35); font-weight: 300; }
 
-  /* ─── BOOKING ─────────────────────────────────── */
-  .book-sec {
-    background: var(--green-800); padding: 5.5rem 5%; text-align: center;
-  }
+  /* ─── BOOKING ─── */
+  .book-sec { background: var(--green-800); padding: 5.5rem 5%; text-align: center; }
   .book-sec .sec-tag { color: var(--gold); justify-content: center; }
   .book-sec .sec-tag::before { background: var(--gold); }
   .book-sec .sec-title { color: #fff; margin: 0 auto 0.9rem; }
   .book-sec .sec-title em { color: var(--gold-lt); }
   .book-sec .sec-desc { color: rgba(255,255,255,0.5); margin: 0 auto 2.5rem; }
-  .book-form {
-    display: grid; grid-template-columns: 1fr 1fr 1fr auto;
-    gap: 1rem; max-width: 800px; margin: 0 auto; align-items: end;
-  }
-  .fg label {
-    display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 0.45rem; text-align: left;
-  }
+  .fg label { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.45rem; text-align: left; }
   .fg input, .fg select {
     width: 100%; background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.15); border-radius: 3px;
@@ -316,122 +286,55 @@
   .fg input:focus, .fg select:focus { border-color: var(--gold); }
   .fg input::placeholder { color: rgba(255,255,255,0.3); }
 
-  /* ─── CONTACT ─────────────────────────────────── */
+  /* ─── CONTACT ─── */
   .contact-sec { background: var(--cream); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
   .c-item { display: flex; gap: 1rem; margin-bottom: 1.8rem; align-items: flex-start; }
-  .c-icon {
-    width: 44px; height: 44px; border-radius: 8px; background: var(--green-50);
-    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
-  }
+  .c-icon { width: 44px; height: 44px; border-radius: 8px; background: var(--green-50); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
   .c-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
   .c-val { font-weight: 500; color: var(--text); font-size: 0.93rem; line-height: 1.5; }
   .c-val a { color: var(--green-700); text-decoration: none; }
   .c-val a:hover { text-decoration: underline; }
-  .map-box {
-    background: var(--green-50); border: 1px solid var(--green-200);
-    border-radius: 8px; min-height: 280px; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 0.5rem; padding: 2rem;
-  }
+  .map-box { background: var(--green-50); border: 1px solid var(--green-200); border-radius: 8px; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 2rem; }
   .map-box .map-pin { font-size: 2.5rem; }
   .map-box h4 { font-family: var(--font-h); font-size: 1.1rem; color: var(--green-900); text-align: center; }
   .map-box p { font-size: 0.85rem; color: var(--muted); text-align: center; font-weight: 300; }
 
-  /* ─── CTA BANNER ──────────────────────────────── */
-  .cta-banner {
-    background: var(--gold); padding: 3rem 5%; text-align: center;
-  }
+  /* ─── CTA BANNER ─── */
+  .cta-banner { background: var(--gold); padding: 3rem 5%; text-align: center; }
   .cta-banner h2 { font-family: var(--font-h); font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--green-900); margin-bottom: 0.5rem; }
   .cta-banner p { color: rgba(13,43,26,0.7); font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 300; }
-  .cta-phone {
-    font-family: var(--font-h); font-size: 1.8rem; font-weight: 700;
-    color: var(--green-900); display: block; margin-bottom: 1rem;
-    text-decoration: none;
-  }
+  .cta-phone { font-family: var(--font-h); font-size: 1.8rem; font-weight: 700; color: var(--green-900); display: block; margin-bottom: 1rem; text-decoration: none; }
 
-  /* ─── FOOTER ──────────────────────────────────── */
-  footer {
-    background: var(--green-900); padding: 2rem 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(200,150,60,0.15);
-  }
+  /* ─── FOOTER ─── */
+  footer { background: var(--green-900); padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(200,150,60,0.15); }
   .f-logo { font-family: var(--font-h); font-size: 1.15rem; color: var(--gold); }
   .f-copy { font-size: 0.77rem; color: rgba(255,255,255,0.3); }
   .f-links { display: flex; gap: 1.5rem; }
   .f-links a { font-size: 0.77rem; color: rgba(255,255,255,0.3); text-decoration: none; }
   .f-links a:hover { color: var(--gold); }
 
-  /* ─── ANIMATIONS ──────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero h1, .hero-sub, .hero-desc, .hero-btns, .hero-stats {
-    animation: fadeUp 0.7s ease both;
-  }
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero h1, .hero-sub, .hero-desc, .hero-btns, .hero-stats { animation: fadeUp 0.7s ease both; }
   .hero-sub { animation-delay: .1s; }
   .hero-desc { animation-delay: .2s; }
   .hero-btns { animation-delay: .3s; }
   .hero-stats { animation-delay: .4s; }
 
-  /* ─── RESPONSIVE ──────────────────────────────── */
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
+    .nav-links { display: none; }       /* desktop links hide */
+    .hamburger { display: flex; }       /* hamburger show */
     .hero-stats { gap: 2rem; }
     .cap-wrap { grid-template-columns: 1fr; gap: 2rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .book-form { grid-template-columns: 1fr; }
-    .gallery-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 160px 160px 160px;
-    }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px 160px; }
     .gallery-grid .g-item:first-child { grid-row: 1; }
   }
   @media (max-width: 480px) {
     section { padding: 4rem 4%; }
     .events-grid { grid-template-columns: 1fr 1fr; }
-  }
-.hamburger {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer;
-    background: none; border: none; padding: 8px; z-index: 300;
-  }
-  .hamburger span {
-    width: 24px; height: 2px; background: #fff; border-radius: 2px;
-    transition: all 0.3s ease; display: block;
-  }
-  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 62px; left: 0; right: 0;
-    background: var(--green-900);
-    flex-direction: column;
-    padding: 1rem 0;
-    border-bottom: 2px solid var(--gold);
-    z-index: 199;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    color: rgba(255,255,255,0.85); text-decoration: none;
-    font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 1rem 5%; border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: background .2s, color .2s;
-  }
-  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--gold); }
-  .mobile-menu a.mob-cta {
-    background: var(--gold); color: var(--green-900) !important;
-    text-align: center; margin: 1rem 5% 0.5rem; border-radius: 2px;
-    border-bottom: none; font-weight: 500;
-  }
-  .mobile-menu a.mob-wa {
-    background: #25D366; color: #fff !important;
-    text-align: center; margin: 0 5% 0.5rem; border-radius: 2px;
-    border-bottom: none; font-weight: 500;
   }
 </style>
 </head>
@@ -440,6 +343,8 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">Green <span>Palace</span></a>
+
+  <!-- Desktop links -->
   <div class="nav-links">
     <a href="#events">Events</a>
     <a href="#features">Amenities</a>
@@ -447,12 +352,16 @@
     <a href="#contact">Contact</a>
     <a href="#booking" class="nav-cta">Book Now</a>
   </div>
+
+  <!-- Hamburger button -->
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </nav>
+
+<!-- Mobile Menu (separate from nav, full width) -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#events"   onclick="closeMobileMenu()">Events</a>
   <a href="#features" onclick="closeMobileMenu()">Amenities</a>
@@ -474,22 +383,10 @@
     <a href="#events" class="btn-ghost">See Events ↓</a>
   </div>
   <div class="hero-stats">
-    <div style="text-align:center">
-      <div class="hs-num">1500</div>
-      <div class="hs-label">Max Guests</div>
-    </div>
-    <div style="text-align:center">
-      <div class="hs-num">4.2★</div>
-      <div class="hs-label">Justdial Rating</div>
-    </div>
-    <div style="text-align:center">
-      <div class="hs-num">782+</div>
-      <div class="hs-label">Reviews</div>
-    </div>
-    <div style="text-align:center">
-      <div class="hs-num">Open</div>
-      <div class="hs-label">Lawn Venue</div>
-    </div>
+    <div style="text-align:center"><div class="hs-num">1500</div><div class="hs-label">Max Guests</div></div>
+    <div style="text-align:center"><div class="hs-num">4.2★</div><div class="hs-label">Justdial Rating</div></div>
+    <div style="text-align:center"><div class="hs-num">782+</div><div class="hs-label">Reviews</div></div>
+    <div style="text-align:center"><div class="hs-num">Open</div><div class="hs-label">Lawn Venue</div></div>
   </div>
 </section>
 
@@ -500,87 +397,31 @@
     <h2 class="sec-title">Every <em>Celebration</em>,<br>Every Occasion</h2>
     <p class="sec-desc">Green Palace Party Plot is perfectly suited for all kinds of events — from intimate functions to grand gatherings under the open sky.</p>
     <div class="events-grid">
-      <div class="ev-card">
-        <div class="ev-icon">💍</div>
-        <div class="ev-name">Wedding</div>
-        <div class="ev-desc">Lagna ni grand setting sathe memorable wedding — mandap, decor & full arrangements.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🥂</div>
-        <div class="ev-name">Reception</div>
-        <div class="ev-desc">Stunning stage & lighting setups for a reception night your guests will never forget.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🎂</div>
-        <div class="ev-name">Birthday Party</div>
-        <div class="ev-desc">Bade celebrations ke liye perfect open lawn — for kids, teens & milestone birthdays.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">💫</div>
-        <div class="ev-name">Engagement</div>
-        <div class="ev-desc">Romantic, elegant settings for your sagai ceremony with family & close friends.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🎊</div>
-        <div class="ev-name">Sangeet</div>
-        <div class="ev-desc">Open lawn with great sound setup — perfect for a night full of music & dancing.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🙏</div>
-        <div class="ev-name">Puja & Religious</div>
-        <div class="ev-desc">Satyanarayan, Griha Pravesh, thread ceremony & other religious events with ease.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🏢</div>
-        <div class="ev-name">Corporate</div>
-        <div class="ev-desc">Award nights, team gatherings & product launches in a premium outdoor setting.</div>
-      </div>
-      <div class="ev-card">
-        <div class="ev-icon">🍽️</div>
-        <div class="ev-name">Private Party</div>
-        <div class="ev-desc">Anniversary dinners, family reunions or any private celebration — big or small.</div>
-      </div>
+      <div class="ev-card"><div class="ev-icon">💍</div><div class="ev-name">Wedding</div><div class="ev-desc">Lagna ni grand setting sathe memorable wedding — mandap, decor & full arrangements.</div></div>
+      <div class="ev-card"><div class="ev-icon">🥂</div><div class="ev-name">Reception</div><div class="ev-desc">Stunning stage & lighting setups for a reception night your guests will never forget.</div></div>
+      <div class="ev-card"><div class="ev-icon">🎂</div><div class="ev-name">Birthday Party</div><div class="ev-desc">Bade celebrations ke liye perfect open lawn — for kids, teens & milestone birthdays.</div></div>
+      <div class="ev-card"><div class="ev-icon">💫</div><div class="ev-name">Engagement</div><div class="ev-desc">Romantic, elegant settings for your sagai ceremony with family & close friends.</div></div>
+      <div class="ev-card"><div class="ev-icon">🎊</div><div class="ev-name">Sangeet</div><div class="ev-desc">Open lawn with great sound setup — perfect for a night full of music & dancing.</div></div>
+      <div class="ev-card"><div class="ev-icon">🙏</div><div class="ev-name">Puja & Religious</div><div class="ev-desc">Satyanarayan, Griha Pravesh, thread ceremony & other religious events with ease.</div></div>
+      <div class="ev-card"><div class="ev-icon">🏢</div><div class="ev-name">Corporate</div><div class="ev-desc">Award nights, team gatherings & product launches in a premium outdoor setting.</div></div>
+      <div class="ev-card"><div class="ev-icon">🍽️</div><div class="ev-name">Private Party</div><div class="ev-desc">Anniversary dinners, family reunions or any private celebration — big or small.</div></div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES / AMENITIES -->
+<!-- FEATURES -->
 <section class="features-sec" id="features">
   <div class="inner">
     <div class="sec-tag">Amenities</div>
     <h2 class="sec-title">Everything <em>Arranged</em><br>For Your Big Day</h2>
     <p class="sec-desc">Top-class facilities so you celebrate stress-free. We handle the space, you enjoy the moments.</p>
     <div class="features-grid">
-      <div class="feat-card">
-        <div class="feat-num">01</div>
-        <div class="feat-title">🌿 Grand Open Lawn</div>
-        <div class="feat-desc">Lush, beautifully maintained open-air lawn — ideal for large outdoor events with a natural, royal ambiance.</div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">02</div>
-        <div class="feat-title">🚗 Ample Parking</div>
-        <div class="feat-desc">Very large dedicated parking area accommodating hundreds of vehicles comfortably — no parking worries for your guests.</div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">03</div>
-        <div class="feat-title">💡 Premium Lighting</div>
-        <div class="feat-desc">Full event lighting & decor setups available — from simple fairy lights to grand stage illumination.</div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">04</div>
-        <div class="feat-title">🔊 Sound System</div>
-        <div class="feat-desc">Professional outdoor sound equipment for DJ, live music, anchoring & announcements.</div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">05</div>
-        <div class="feat-title">🍽️ Catering Friendly</div>
-        <div class="feat-desc">Bring your own caterer or use our recommended catering partners — Gujarati, Rajasthani & all cuisines.</div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">06</div>
-        <div class="feat-title">⚡ Power Backup</div>
-        <div class="feat-desc">Full generator backup ensures your event continues smoothly without any interruptions.</div>
-      </div>
+      <div class="feat-card"><div class="feat-num">01</div><div class="feat-title">🌿 Grand Open Lawn</div><div class="feat-desc">Lush, beautifully maintained open-air lawn — ideal for large outdoor events with a natural, royal ambiance.</div></div>
+      <div class="feat-card"><div class="feat-num">02</div><div class="feat-title">🚗 Ample Parking</div><div class="feat-desc">Very large dedicated parking area accommodating hundreds of vehicles comfortably.</div></div>
+      <div class="feat-card"><div class="feat-num">03</div><div class="feat-title">💡 Premium Lighting</div><div class="feat-desc">Full event lighting & decor setups available — from simple fairy lights to grand stage illumination.</div></div>
+      <div class="feat-card"><div class="feat-num">04</div><div class="feat-title">🔊 Sound System</div><div class="feat-desc">Professional outdoor sound equipment for DJ, live music, anchoring & announcements.</div></div>
+      <div class="feat-card"><div class="feat-num">05</div><div class="feat-title">🍽️ Catering Friendly</div><div class="feat-desc">Bring your own caterer or use our recommended catering partners — all cuisines.</div></div>
+      <div class="feat-card"><div class="feat-num">06</div><div class="feat-title">⚡ Power Backup</div><div class="feat-desc">Full generator backup ensures your event continues smoothly without any interruptions.</div></div>
     </div>
   </div>
 </section>
@@ -619,26 +460,10 @@
     <div class="sec-tag">Why Choose Us</div>
     <h2 class="sec-title">Ahmedabad's <em>Trusted</em><br>Party Plot</h2>
     <div class="why-grid">
-      <div class="why-item">
-        <div class="why-icon">📍</div>
-        <div class="why-title">Prime Location</div>
-        <div class="why-desc">Conveniently located on Sindhu Bhavan, Shilaj Road, Bopal — easily accessible from all parts of Ahmedabad.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">⭐</div>
-        <div class="why-title">4.2★ Rated Venue</div>
-        <div class="why-desc">Over 782 happy customer reviews on Justdial. Trusted by Ahmedabad families for years.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">🌿</div>
-        <div class="why-title">Beautiful Lawn</div>
-        <div class="why-desc">Lush green open lawn creates a stunning natural backdrop for all your event photos & memories.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">💰</div>
-        <div class="why-title">Affordable Rates</div>
-        <div class="why-desc">Premium experience at competitive pricing — flexible packages to suit every budget.</div>
-      </div>
+      <div class="why-item"><div class="why-icon">📍</div><div class="why-title">Prime Location</div><div class="why-desc">Conveniently located on Sindhu Bhavan, Shilaj Road, Bopal — easily accessible from all parts of Ahmedabad.</div></div>
+      <div class="why-item"><div class="why-icon">⭐</div><div class="why-title">4.2★ Rated Venue</div><div class="why-desc">Over 782 happy customer reviews on Justdial. Trusted by Ahmedabad families for years.</div></div>
+      <div class="why-item"><div class="why-icon">🌿</div><div class="why-title">Beautiful Lawn</div><div class="why-desc">Lush green open lawn creates a stunning natural backdrop for all your event photos & memories.</div></div>
+      <div class="why-item"><div class="why-icon">💰</div><div class="why-title">Affordable Rates</div><div class="why-desc">Premium experience at competitive pricing — flexible packages to suit every budget.</div></div>
     </div>
   </div>
 </section>
@@ -649,23 +474,13 @@
     <div class="sec-tag" style="color:var(--green-400);"><span style="width:28px;height:1.5px;background:var(--green-400);display:inline-block;"></span> Gallery</div>
     <h2 class="sec-title" style="color:#fff;">Glimpse of <em style="color:var(--gold)">Green Palace</em></h2>
     <div class="gallery-grid">
-      <div class="g-item g1">
-        <div class="g-label"><p>Outdoor</p><h4>Grand Lawn</h4></div>
-      </div>
-      <div class="g-item g2">
-        <div class="g-label"><p>Setup</p><h4>Wedding Stage</h4></div>
-      </div>
-      <div class="g-item g3">
-        <div class="g-label"><p>Night View</p><h4>Lighting</h4></div>
-      </div>
-      <div class="g-item g4">
-        <div class="g-label"><p>Parking</p><h4>Large Lot</h4></div>
-      </div>
-      <div class="g-item g5">
-        <div class="g-label"><p>Decor</p><h4>Event Setup</h4></div>
-      </div>
+      <div class="g-item g1"><div class="g-label"><p>Outdoor</p><h4>Grand Lawn</h4></div></div>
+      <div class="g-item g2"><div class="g-label"><p>Setup</p><h4>Wedding Stage</h4></div></div>
+      <div class="g-item g3"><div class="g-label"><p>Night View</p><h4>Lighting</h4></div></div>
+      <div class="g-item g4"><div class="g-label"><p>Parking</p><h4>Large Lot</h4></div></div>
+      <div class="g-item g5"><div class="g-label"><p>Decor</p><h4>Event Setup</h4></div></div>
     </div>
-    <p class="gallery-note">📸</p>
+    <p class="gallery-note">📸 Actual photos coming soon</p>
   </div>
 </section>
 
@@ -674,49 +489,17 @@
   <div class="inner">
     <div class="sec-tag">Enquiry Form</div>
     <h2 class="sec-title">Book Your <em>Date</em></h2>
-    <p class="sec-desc">Enter your details – our team will call you in 2Hrs. This inquiry will be automatically saved to our Sheet.</p>
-
-    <!-- 
-      ============================================================
-      FORMSPREE SETUP (FREE) — Google Sheet se connect karne ke liye:
-      
-      STEP 1: formspree.io pe jao → Sign Up (free)
-      STEP 2: "New Form" banao → name: "Green Palace Enquiries"
-      STEP 3: Form ka ID milega jaise "xpzgkwqr"
-      STEP 4: Niche wali line mein "YOUR_FORM_ID" ki jagah wo ID daalo:
-              action="https://formspree.io/f/YOUR_FORM_ID"
-      
-      GOOGLE SHEET ke liye:
-      STEP 5: Formspree dashboard mein "Integrations" click karo
-      STEP 6: "Google Sheets" select karo → apni Google account connect karo
-      STEP 7: Ek naya sheet automatically ban jayega "Green Palace Enquiries"
-      STEP 8: Sheet mein Month column auto-fill ke liye formula daalo:
-              =TEXT(C2,"MMMM YYYY")   ← C column mein date hogi
-      ============================================================
-    -->
+    <p class="sec-desc">Enter your details – our team will call you in 2 hours. This enquiry will be automatically saved to our Google Sheet.</p>
     <form id="enquiry-form" action="https://formspree.io/f/mpqokyal" method="POST" style="max-width:700px; margin: 2.5rem auto 0;">
-      
-      <!-- Hidden fields for Google Sheet tracking -->
       <input type="hidden" name="_subject" value="New Enquiry – Green Palace Party Plot">
       <input type="hidden" name="Submitted On" id="submitted-on">
       <input type="hidden" name="Month" id="month-field">
-
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-        <div class="fg">
-          <label>Aapka Naam *</label>
-          <input type="text" name="Name" placeholder="Full Name" required>
-        </div>
-        <div class="fg">
-          <label>Mobile Number *</label>
-          <input type="tel" name="Mobile" placeholder="+91 XXXXX XXXXX" required>
-        </div>
+        <div class="fg"><label>Aapka Naam *</label><input type="text" name="Name" placeholder="Full Name" required></div>
+        <div class="fg"><label>Mobile Number *</label><input type="tel" name="Mobile" placeholder="+91 XXXXX XXXXX" required></div>
       </div>
-
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-        <div class="fg">
-          <label>Event Date *</label>
-          <input type="date" name="Event Date" required>
-        </div>
+        <div class="fg"><label>Event Date *</label><input type="date" name="Event Date" required></div>
         <div class="fg">
           <label>Event Type *</label>
           <select name="Event Type" required>
@@ -733,7 +516,6 @@
           </select>
         </div>
       </div>
-
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
         <div class="fg">
           <label>Guest Count</label>
@@ -745,119 +527,21 @@
             <option>1000 – 1500</option>
           </select>
         </div>
-        
-       <!-- <div class="fg">
-          <label>Budget (Optional)</label>
-          <select name="Budget">
-            <option value="">Select Budget</option>
-            <option>Under ₹50,000</option>
-            <option>₹50,000 – ₹1,00,000</option>
-            <option>₹1,00,000 – ₹2,00,000</option>
-            <option>₹2,00,000+</option>
-          </select>
-        </div>
-      </div> -->
-
+      </div>
       <div class="fg" style="margin-bottom:1.5rem;">
         <label>Message / Special Requirements</label>
         <textarea name="Message" rows="3" placeholder="Koi bhi special requirement likho — catering, decor, timing, etc." style="width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:3px; padding:0.75rem 1rem; color:#fff; font-family:var(--font-b); font-size:0.88rem; outline:none; resize:vertical; transition:border-color .2s;"></textarea>
       </div>
-
-      <!-- Success / Error message -->
       <div id="form-msg" style="display:none; padding:0.8rem 1rem; border-radius:4px; margin-bottom:1rem; font-size:0.88rem;"></div>
-
       <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
-        <button type="submit" class="btn-gold" style="font-size:0.85rem; padding:0.9rem 2.5rem;">
-          📩 Submit Enquiry
-        </button>
-        <a href="https://wa.me/919081810016?text=Namaste!%20Green%20Palace%20Party%20Plot%20ke%20baare%20mein%20enquiry%20karni%20thi." target="_blank" class="btn-ghost" style="font-size:0.82rem; padding:0.9rem 1.8rem;">
-          💬 WhatsApp Us
-        </a>
+        <button type="submit" class="btn-gold" style="font-size:0.85rem; padding:0.9rem 2.5rem;">📩 Submit Enquiry</button>
+        <a href="https://wa.me/919081810016?text=Namaste!%20Green%20Palace%20Party%20Plot%20ke%20baare%20mein%20enquiry%20karni%20thi." target="_blank" class="btn-ghost" style="font-size:0.82rem; padding:0.9rem 1.8rem;">💬 WhatsApp Us</a>
       </div>
     </form>
   </div>
 </section>
 
-<script>
-// Auto-fill hidden date fields when form loads
-(function() {
-  var now = new Date();
-  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  var dateStr = now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
-  var monthStr = months[now.getMonth()] + ' ' + now.getFullYear();
-  var d = document.getElementById('submitted-on');
-  var m = document.getElementById('month-field');
-  if(d) d.value = dateStr;
-  if(m) m.value = monthStr;
-})();
-
-// Form submit handler
-var form = document.getElementById('enquiry-form');
-if(form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var btn = form.querySelector('button[type=submit]');
-    var msg = document.getElementById('form-msg');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function(r) {
-      if(r.ok) {
-        msg.style.display = 'block';
-        msg.style.background = 'rgba(76,175,122,0.2)';
-        msg.style.border = '1px solid rgba(76,175,122,0.4)';
-        msg.style.color = '#a8d5b8';
-        msg.textContent = '✅ Enquiry submit ho gayi! We will call in 2 hours — +91 90818 10016';
-        form.reset();
-        btn.textContent = '📩 Submit Enquiry';
-        btn.disabled = false;
-      } else {
-        throw new Error('Error');
-      }
-    }).catch(function() {
-      msg.style.display = 'block';
-      msg.style.background = 'rgba(220,50,50,0.2)';
-      msg.style.border = '1px solid rgba(220,50,50,0.3)';
-      msg.style.color = '#ffaaaa';
-      msg.textContent = '⚠️ There was an error. Please call me.: +91 90818 10016';
-      btn.textContent = '📩 Submit Enquiry';
-      btn.disabled = false;
-    });
-  });
-}
-
-var hamburger = document.getElementById('hamburger');
-var mobileMenu = document.getElementById('mobile-menu');
-
-hamburger.addEventListener('click', function() {
-  var isOpen = mobileMenu.classList.contains('open');
-  if (isOpen) {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-  } else {
-    mobileMenu.classList.add('open');
-    hamburger.classList.add('open');
-  }
-});
-
-function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  hamburger.classList.remove('open');
-}
-
-document.addEventListener('click', function(e) {
-  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    closeMobileMenu();
-  }
-});
-
-</script>
-
-<!-- CTA PHONE BANNER -->
+<!-- CTA BANNER -->
 <div class="cta-banner">
   <h2>Ready to Book Green Palace?</h2>
   <p>Aaj hi call karo aur apni date pakki karo. Limited dates available!</p>
@@ -874,36 +558,19 @@ document.addEventListener('click', function(e) {
       <div>
         <div class="c-item">
           <div class="c-icon">📍</div>
-          <div>
-            <div class="c-label">Address</div>
-            <div class="c-val">Green Palace Party Plot<br>Sindhu Bhavan, Shilaj Road<br>Bopal, Ahmedabad – 380058, Gujarat</div>
-          </div>
+          <div><div class="c-label">Address</div><div class="c-val">Green Palace Party Plot<br>Sindhu Bhavan, Shilaj Road<br>Bopal, Ahmedabad – 380058, Gujarat</div></div>
         </div>
         <div class="c-item">
           <div class="c-icon">📞</div>
-          <div>
-            <div class="c-label">Phone / WhatsApp</div>
-            <div class="c-val">
-              <a href="tel:+919081810016">+91 90818 10016</a><br>
-              <a href="tel:+919081810016">+91 90818 10016</a>
-            </div>
-          </div>
+          <div><div class="c-label">Phone / WhatsApp</div><div class="c-val"><a href="tel:+919081810016">+91 90818 10016</a></div></div>
         </div>
         <div class="c-item">
           <div class="c-icon">🕐</div>
-          <div>
-            <div class="c-label">Enquiry Timings</div>
-            <div class="c-val">Monday – Sunday<br>9:00 AM – 9:00 PM</div>
-          </div>
+          <div><div class="c-label">Enquiry Timings</div><div class="c-val">Monday – Sunday<br>9:00 AM – 9:00 PM</div></div>
         </div>
         <div class="c-item">
           <div class="c-icon">🌐</div>
-          <div>
-            <div class="c-label">Also Listed On</div>
-            <div class="c-val">
-              <a href="https://www.justdial.com/Ahmedabad/Green-Palace-Bopal/079PXX79-XX79-200627221256-Y3Q7_BZDET" target="_blank">Justdial ↗</a>
-            </div>
-          </div>
+          <div><div class="c-label">Also Listed On</div><div class="c-val"><a href="https://www.justdial.com/Ahmedabad/Green-Palace-Bopal/079PXX79-XX79-200627221256-Y3Q7_BZDET" target="_blank">Justdial ↗</a></div></div>
         </div>
       </div>
       <div>
@@ -930,5 +597,78 @@ document.addEventListener('click', function(e) {
   </div>
 </footer>
 
+<script>
+// ── HAMBURGER MENU ──
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', function() {
+  var isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  } else {
+    mobileMenu.classList.add('open');
+    hamburger.classList.add('open');
+  }
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+
+// Close menu if clicked outside
+document.addEventListener('click', function(e) {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+// ── FORM ──
+(function() {
+  var now = new Date();
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var d = document.getElementById('submitted-on');
+  var m = document.getElementById('month-field');
+  if(d) d.value = now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+  if(m) m.value = months[now.getMonth()] + ' ' + now.getFullYear();
+})();
+
+var form = document.getElementById('enquiry-form');
+if(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var msg = document.getElementById('form-msg');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+      if(r.ok) {
+        msg.style.display = 'block';
+        msg.style.background = 'rgba(76,175,122,0.2)';
+        msg.style.border = '1px solid rgba(76,175,122,0.4)';
+        msg.style.color = '#a8d5b8';
+        msg.textContent = '✅ Enquiry submit ho gayi! We will call in 2 hours — +91 90818 10016';
+        form.reset();
+      } else { throw new Error(); }
+      btn.textContent = '📩 Submit Enquiry';
+      btn.disabled = false;
+    }).catch(function() {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(220,50,50,0.2)';
+      msg.style.border = '1px solid rgba(220,50,50,0.3)';
+      msg.style.color = '#ffaaaa';
+      msg.textContent = '⚠️ There was an error. Please call me.: +91 90818 10016';
+      btn.textContent = '📩 Submit Enquiry';
+      btn.disabled = false;
+    });
+  });
+}
+</script>
 </body>
 </html>
