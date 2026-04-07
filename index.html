@@ -392,6 +392,47 @@
     section { padding: 4rem 4%; }
     .events-grid { grid-template-columns: 1fr 1fr; }
   }
+.hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 8px; z-index: 300;
+  }
+  .hamburger span {
+    width: 24px; height: 2px; background: #fff; border-radius: 2px;
+    transition: all 0.3s ease; display: block;
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 62px; left: 0; right: 0;
+    background: var(--green-900);
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--gold);
+    z-index: 199;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 1rem 5%; border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background .2s, color .2s;
+  }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--gold); }
+  .mobile-menu a.mob-cta {
+    background: var(--gold); color: var(--green-900) !important;
+    text-align: center; margin: 1rem 5% 0.5rem; border-radius: 2px;
+    border-bottom: none; font-weight: 500;
+  }
+  .mobile-menu a.mob-wa {
+    background: #25D366; color: #fff !important;
+    text-align: center; margin: 0 5% 0.5rem; border-radius: 2px;
+    border-bottom: none; font-weight: 500;
+  }
 </style>
 </head>
 <body>
@@ -406,10 +447,20 @@
     <a href="#contact">Contact</a>
     <a href="#booking" class="nav-cta">Book Now</a>
   </div>
-  <div class="hamburger" onclick="this.nextElementSibling.style.display='flex'" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#events"   onclick="closeMobileMenu()">Events</a>
+  <a href="#features" onclick="closeMobileMenu()">Amenities</a>
+  <a href="#capacity" onclick="closeMobileMenu()">Capacity</a>
+  <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
+  <a href="#booking"  onclick="closeMobileMenu()" class="mob-cta">📅 Book Now</a>
+  <a href="https://wa.me/919081810016" target="_blank" class="mob-wa">💬 WhatsApp</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -614,7 +665,7 @@
         <div class="g-label"><p>Decor</p><h4>Event Setup</h4></div>
       </div>
     </div>
-    <p class="gallery-note">📸 Actual photos from Justdial & Instagram will be placed here by the website owner</p>
+    <p class="gallery-note">📸</p>
   </div>
 </section>
 
@@ -672,6 +723,7 @@
             <option value="">Select Event</option>
             <option>Wedding / Lagna</option>
             <option>Reception</option>
+            <option>Srimant</option>
             <option>Birthday Party</option>
             <option>Engagement / Sagai</option>
             <option>Sangeet</option>
@@ -693,6 +745,18 @@
             <option>1000 – 1500</option>
           </select>
         </div>
+        
+       <!-- <div class="fg">
+          <label>Budget (Optional)</label>
+          <select name="Budget">
+            <option value="">Select Budget</option>
+            <option>Under ₹50,000</option>
+            <option>₹50,000 – ₹1,00,000</option>
+            <option>₹1,00,000 – ₹2,00,000</option>
+            <option>₹2,00,000+</option>
+          </select>
+        </div>
+      </div> -->
 
       <div class="fg" style="margin-bottom:1.5rem;">
         <label>Message / Special Requirements</label>
@@ -759,12 +823,38 @@ if(form) {
       msg.style.background = 'rgba(220,50,50,0.2)';
       msg.style.border = '1px solid rgba(220,50,50,0.3)';
       msg.style.color = '#ffaaaa';
-      msg.textContent = '⚠️ There was an error. Please call me. : +91 90818 10016';
+      msg.textContent = '⚠️ There was an error. Please call me.: +91 90818 10016';
       btn.textContent = '📩 Submit Enquiry';
       btn.disabled = false;
     });
   });
 }
+
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', function() {
+  var isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  } else {
+    mobileMenu.classList.add('open');
+    hamburger.classList.add('open');
+  }
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
 </script>
 
 <!-- CTA PHONE BANNER -->
